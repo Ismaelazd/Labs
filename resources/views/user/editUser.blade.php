@@ -49,6 +49,14 @@
             <div class="alert alert-danger">{{  $message  }}</div>
             @enderror
         </div>
+        <div class="form-group text-darka">
+            <label class="h3" for="image">Image :</label>
+            <input value="{{$user->image}}" type="file" name="image"
+                class="form-control @error('image') is-invalid @enderror" id="image">
+            @error('image')
+            <div class="alert alert-danger">{{  $message  }}</div>
+            @enderror
+        </div>
 
         <div class="text-center">
 

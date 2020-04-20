@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Role;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
     /**
@@ -56,7 +58,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         $roles = Role::all();
      
@@ -78,7 +80,12 @@ class UserController extends Controller
             'role_id'=>'required',
         ]);
         
-      
+        if($request->hasFile('image')) {
+            Storage::disk('public')->delete($user->image);
+            $imageNew=Storage::disk('public')->put('', $request->image);
+            $user->image=$imageNew;
+        }
+
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->role_id = $request->input('role_id');
