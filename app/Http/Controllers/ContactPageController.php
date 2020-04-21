@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\HomeElement;
 use Illuminate\Http\Request;
 
 class ContactPageController extends Controller
 {
     public function index(){
-        return view('contactPage');
+        $homeElement = HomeElement::first();
+        return view('contactPage',compact('homeElement'));
     }
 }

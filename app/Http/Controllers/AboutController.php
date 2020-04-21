@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class AboutController extends Controller
 {
@@ -14,7 +16,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        //
+        $about = About::first();
+        return view('about.viewAbout',compact('about'));
     }
 
     /**
@@ -57,7 +60,7 @@ class AboutController extends Controller
      */
     public function edit(About $about)
     {
-        //
+        return view('about.editAbout',compact('about'));
     }
 
     /**
@@ -69,7 +72,32 @@ class AboutController extends Controller
      */
     public function update(Request $request, About $about)
     {
-        //
+  
+        $request->validate([
+            'videoUrl'=> 'required',
+            'description1'=>'required',
+            'description2'=>'required',
+          
+        ]);
+
+        if($request->hasFile('videoImg')) {
+            Storage::disk('public')->delete($about->videoImg);
+            $imageNew=Storage::disk('public')->put('', $request->videoImg);
+            $about->videoImg=$imageNew;
+        }
+        
+        $about->videoUrl = $request->input('videoUrl');
+        $about->description1 = $request->input('description1');
+        $about->description2 = $request->input('description2');
+
+        if($request->input('btnAbout')){
+            $about->btnAbout = true;
+        }else{
+            $about->btnAbout = false;
+        }
+       
+        $about->save();
+        return redirect()->route('about.index');
     }
 
     /**

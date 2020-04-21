@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Service;
+use App\Icon;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -13,8 +14,10 @@ class ServiceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    { 
+        $icons = Icon::all();
+        $services = Service::all();
+        return view('service.viewService',compact('services','icons'));
     }
 
     /**
@@ -23,8 +26,9 @@ class ServiceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {  
+        $icons = Icon::all();
+        return view('service.addService',compact('icons'));
     }
 
     /**
@@ -35,7 +39,21 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'icon_id'=> 'required',
+            'titre'=>'required',
+            'description'=>'required',
+        ]);
+        
+        $service = new Service();
+        $service->titre = $request->input('titre');
+        $service->description = $request->input('description');
+        $service->icon_id = $request->input('icon_id');
+        $service->save();
+
+
+        return redirect()->route('service.index');
+
     }
 
     /**
@@ -57,7 +75,9 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        $icons = Icon::all();
+     
+        return view('service.editService',compact('service','icons'));
     }
 
     /**
@@ -69,7 +89,19 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $request->validate([
+            'icon_id'=> 'required',
+            'titre'=>'required',
+            'description'=>'required',
+        ]);
+        
+        $service->titre = $request->input('titre');
+        $service->description = $request->input('description');
+        $service->icon_id = $request->input('icon_id');
+        $service->save();
+
+
+        return redirect()->route('service.index');
     }
 
     /**
@@ -80,6 +112,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->route('service.index');
     }
 }

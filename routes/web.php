@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 // Ressources Welcome
-Route::get('/',function(){
-    return view('welcome');
-});
+Route::get('/','WelcomeController@index')->name('Welcome');
 Route::resource('welcome', 'WelcomeController');
 
 Auth::routes();
@@ -39,6 +37,10 @@ Route::get('/admin', 'WelcomeController@admin')->name('Admin')->middleware('admi
 
 Route::resource('users', 'UserController')->middleware('admin');
 
+// Ressources Services
+
+Route::resource('service', 'ServiceController')->middleware('admin');
+
 
 // Ressources ServicePage
 
@@ -51,6 +53,14 @@ Route::resource('blogPage', 'BlogPageController')->middleware('admin');
 // Ressources ContactPage
 
 Route::resource('contactPage', 'ContactPageController')->middleware('admin');
+
+// Ressources HomeElement
+
+Route::resource('homeElement', 'HomeElementController')->middleware('admin');
+
+// Ressources About
+
+Route::resource('about', 'AboutController')->middleware('admin');
 
 Auth::routes();
 

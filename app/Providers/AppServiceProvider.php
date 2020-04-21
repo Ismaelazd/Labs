@@ -39,6 +39,35 @@ class AppServiceProvider extends ServiceProvider
                 'label' => $nb
             ],
             [
+                'text'    => 'Services',
+                'icon'    => 'fas fa-tools',
+                'submenu' => [
+                    [
+                        'text' => 'Les services',
+                        'url'  => 'service',
+                        'icon_color' => 'yellow',
+                    ],
+                    [
+                        'text' => 'Ajouter',
+                        'url'  => 'service/create',
+                        'icon_color' => 'green',
+                    ],
+                    
+                ],
+            ],
+            [
+                'text'    => 'Elements HomePage',
+                'icon'    => 'fas fa-stream',
+                'submenu' => [
+                    [
+                        'text' => 'Les élémments',
+                        'url'  => 'homeElement',
+                        'icon_color' => 'yellow',
+                    ],            
+                    
+                ],
+            ],
+            [
                 'text'    => 'About',
                 'icon'    => 'fas fa-info-circle',
                 'submenu' => [
@@ -47,14 +76,10 @@ class AppServiceProvider extends ServiceProvider
                         'url'  => 'about',
                         'icon_color' => 'yellow',
                     ],
-                    [
-                        'text' => 'Add',
-                        'url'  => 'about/create',
-                        'icon_color' => 'green',
-                    ],
                     
                 ],
             ],
+            
             [
                 'text'    => 'Blog',
                 'icon'    => 'fas fa-comments',

@@ -17,6 +17,7 @@ class CreateHomeElementsTable extends Migration
             $table->id();
             $table->string('logo');
             $table->string('bigLogo');
+            $table->string('titreHeader');
             $table->string('titreAbout');
             $table->string('titreService');
             $table->string('titreTeam');
