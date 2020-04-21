@@ -14,7 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contact = Contact::first();
+        return view('contact.viewContact',compact('contact'));
     }
 
     /**
@@ -57,7 +58,7 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        return view('contact.editContact',compact('contact'));
     }
 
     /**
@@ -69,7 +70,24 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+
+        $request->validate([
+            'address'=> 'required',
+            'ville'=>'required',
+            'tel'=>'required',
+            'email'=>'required',
+            'description'=>'required',
+          
+        ]);
+
+        $contact->address = $request->input('address');
+        $contact->ville = $request->input('ville');
+        $contact->tel = $request->input('tel');
+        $contact->email = $request->input('email');
+        $contact->description = $request->input('description');
+
+        $contact->save();
+        return redirect()->route('contact.index');
     }
 
     /**

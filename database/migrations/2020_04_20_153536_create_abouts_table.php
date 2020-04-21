@@ -19,7 +19,7 @@ class CreateAboutsTable extends Migration
             $table->longText('description2');
             $table->string('videoImg');
             $table->string('videoUrl');
-            $table->boolean('   ');
+            $table->boolean('btnAbout');
             $table->timestamps();
         });
     }

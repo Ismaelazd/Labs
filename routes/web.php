@@ -62,6 +62,10 @@ Route::resource('homeElement', 'HomeElementController')->middleware('admin');
 
 Route::resource('about', 'AboutController')->middleware('admin');
 
+// Ressources Contact
+
+Route::resource('contact', 'ContactController')->middleware('admin');
+
 Auth::routes();
 
 Route::get('/home', function() {

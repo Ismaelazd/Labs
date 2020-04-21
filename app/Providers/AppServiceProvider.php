@@ -81,19 +81,15 @@ class AppServiceProvider extends ServiceProvider
             ],
             
             [
-                'text'    => 'Blog',
-                'icon'    => 'fas fa-comments',
+                'text'    => 'Contact',
+                'icon'    => 'fas fa-address-book',
                 'submenu' => [
                     [
                         'text' => 'Content',
-                        'url'  => 'blog',
+                        'url'  => 'contact',
                         'icon_color' => 'yellow',
                     ],
-                    [
-                        'text' => 'Add',
-                        'url'  => 'blog/create',
-                        'icon_color' => 'green',
-                    ],
+                    
                     
                 ],
             ],
