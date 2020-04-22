@@ -23,40 +23,22 @@
         <fieldset class="form-group mt-3">
             
             <label class="h3" for="name ">Icon :</label>
-                {{-- @error('id_avatar')
-                <p class="text-danger">{{$message}}</p>
-                @enderror --}}
+              
                 
-                <div class="d-flex row modImg">
+                <div class="d-flex row é">
                     @foreach ($icons as $item)
                     <div class="form-check col-3 my-2 d-flex align-items-center justify-content-between  flex-column-reverse">
-                        {{-- @if ($item->id==$service->id_avatar)
-                        <input class="form-check-input" type="radio" name="id_avatar" id="gridRadios1"
-                            value="{{$item->id}}" checked>
-                        @else --}}
+                      
                         <input class="" class=" " type="radio" name="icon_id" id="gridRadios1"
                         value="{{$item->id}}">
                         <i  style="font-size: 40px" class="{{$item->icon}} my-2"></i>
-                        {{-- @endif --}}
+                       
                     </div>
                     @endforeach
                 </div>
             
         </fieldset>
-        {{-- <div class="form-group text-darka ">
-            <label class="h3" for="name ">Icon :</label>
-
-            <select class="form-control" name="icon_id" id="icon_id">
-                @foreach ($icons as $icon)
-                  
-                    <option selected value="{{$icon->id}}"><i class="{{$icon->icon}}"></i></option>
-                       
-                @endforeach
-            </select>
-            @error('icon_id')
-            <div class="alert alert-danger">{{  $message  }}</div>
-            @enderror
-        </div> --}}
+        
         <div class="form-group text-darka ">
             <label class="h3" for="titre">Titre :</label> <br>
             <input value="" type="text" name="titre"

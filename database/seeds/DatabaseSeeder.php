@@ -18,5 +18,11 @@ class DatabaseSeeder extends Seeder
         $this->call(HomeElementSeeder::class);
         $this->call(AboutSeeder::class);
         $this->call(ContactSeeder::class);
+        $this->call(FooterSeeder::class);
+        $this->call(TestimonialSeeder::class);
+        $this->call(CategorieSeeder::class);
+        $this->call(TagSeeder::class);
+        $this->call(ArticleSeeder::class);
+        $this->call(CommentaireSeeder::class);
     }
 }

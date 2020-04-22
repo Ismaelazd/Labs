@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class FooterSeeder extends Seeder
 {
@@ -11,6 +12,12 @@ class FooterSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('footers')->insert([
+            
+            'text' => '2017 All rights reserved. Designed by',
+            'linkText' => 'Colorlib',
+            'linkUrl' => 'https://colorlib.com',
+            
+        ]);
     }
 }

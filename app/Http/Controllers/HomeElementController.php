@@ -81,6 +81,7 @@ class HomeElementController extends Controller
             'titreTeam'=>'required',
             'promotionTitre'=>'required',
             'promotionDescription'=>'required',
+            'titreFeature'=>'required',
     
         ]);
         
@@ -111,6 +112,7 @@ class HomeElementController extends Controller
         $homeElement->titreTeam = $request->input('titreTeam');
         $homeElement->promotionTitre = $request->input('promotionTitre');
         $homeElement->promotionDescription = $request->input('promotionDescription');
+        $homeElement->titreFeature = $request->input('titreFeature');
         $homeElement->save();
 
 

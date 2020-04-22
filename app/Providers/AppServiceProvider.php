@@ -94,17 +94,55 @@ class AppServiceProvider extends ServiceProvider
                 ],
             ],
             [
-                'text'    => 'Work',
+                'text'    => 'Formulaire',
+                'icon'    => 'fas fa-envelope-open-text',
+                'submenu' => [
+                    [
+                        'text' => 'Content',
+                        'url'  => 'formulaire',
+                        'icon_color' => 'yellow',
+                    ],
+                    
+                    
+                ],
+            ],
+            [
+                'text'    => 'Newsletter',
+                'icon'    => 'fas fa-mail-bulk',
+                'submenu' => [
+                    [
+                        'text' => 'Content',
+                        'url'  => 'newsletter',
+                        'icon_color' => 'yellow',
+                    ],
+                    
+                    
+                ],
+            ],
+            [
+                'text'    => 'Footer',
+                'icon'    => 'fas fa-caret-square-down',
+                'submenu' => [
+                    [
+                        'text' => 'Content',
+                        'url'  => 'footer',
+                        'icon_color' => 'yellow',
+                    ],     
+                    
+                ],
+            ],
+            [
+                'text'    => 'Testimonials',
                 'icon'    => 'fas fa-folder-open',
                 'submenu' => [
                     [
                         'text' => 'Content',
-                        'url'  => 'work',
+                        'url'  => 'testimonial',
                         'icon_color' => 'yellow',
                     ],
                     [
-                        'text' => 'Add',
-                        'url'  => 'work/create',
+                        'text' => 'Ajouter',
+                        'url'  => 'testimonial/create',
                         'icon_color' => 'green',
                     ],
                     

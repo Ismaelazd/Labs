@@ -21,6 +21,7 @@ class HomeElementSeeder extends Seeder
             'titreTeam' => 'Get in [the Lab] and  meet the team',
             'promotionTitre' => 'Are you ready to stand out?',
             'promotionDescription' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.',
-        ]); 
+            'titreFeature' => 'Get in [the Lab] and  discover the world',
+         ]); 
     }
 }

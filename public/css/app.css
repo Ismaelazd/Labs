@@ -1249,6 +1249,16 @@ ul {
 	background: #19cc93;
 	color: #fff;
 }
+.nl-form input[type="email"] {
+	border: none;
+	padding: 15px 30px;
+	height: 51px;
+	float: left;
+	margin-right: 30px;
+	width: calc(100% - 211px);
+	background: #19cc93;
+	color: #fff;
+}
 
 .nl-form input[type="text"]:focus,
 .nl-form input[type="text"]:hover {

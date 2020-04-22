@@ -68,6 +68,14 @@
             @enderror
         </div>
         <div class="form-group ">
+            <label class="h3" for="titreFeature ">Titre Feature :</label>
+            <input value="{{$homeElement->titreFeature}}" type="text" name="titreFeature"
+                class="form-control @error('titreFeature') is-invalid @enderror" id="titreFeature">
+            @error('titreFeature')
+            <div class="alert alert-danger">{{  $message  }}</div>
+            @enderror
+        </div>
+        <div class="form-group ">
             <label class="h3" for="promotionTitre ">Titre Promotion :</label>
             <input value="{{$homeElement->promotionTitre}}" type="text" name="promotionTitre"
                 class="form-control @error('promotionTitre') is-invalid @enderror" id="promotionTitre">

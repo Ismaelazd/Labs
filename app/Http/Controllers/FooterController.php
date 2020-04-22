@@ -14,7 +14,8 @@ class FooterController extends Controller
      */
     public function index()
     {
-        //
+        $footers = Footer::all();
+        return view('footer.viewFooter',compact('footers'));
     }
 
     /**
@@ -57,7 +58,7 @@ class FooterController extends Controller
      */
     public function edit(Footer $footer)
     {
-        //
+        return view('footer.editFooter',compact('footer'));
     }
 
     /**
@@ -69,7 +70,19 @@ class FooterController extends Controller
      */
     public function update(Request $request, Footer $footer)
     {
-        //
+        $request->validate([
+            'text'=> 'required',
+            'linkText'=>'required',
+            'linkUrl'=>'required',
+          
+        ]);
+
+        $footer->text = $request->input('text');
+        $footer->linkText = $request->input('linkText');
+        $footer->linkUrl = $request->input('linkUrl');
+        $footer->save();
+
+        return redirect()->route('footer.index');
     }
 
     /**

@@ -23,6 +23,7 @@ class CreateHomeElementsTable extends Migration
             $table->string('titreTeam');
             $table->string('promotionTitre');
             $table->string('promotionDescription');
+            $table->string('titreFeature');
             $table->timestamps();
         });
     }

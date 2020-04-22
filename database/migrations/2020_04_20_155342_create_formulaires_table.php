@@ -16,7 +16,7 @@ class CreateFormulairesTable extends Migration
         Schema::create('formulaires', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('prenom');
+            $table->string('email');
             $table->string('sujet');
             $table->string('message');
             $table->timestamps();

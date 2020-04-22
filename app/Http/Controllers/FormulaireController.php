@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Formulaire;
+use App\Mail\FormulaireMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FormulaireController extends Controller
 {
@@ -14,10 +16,11 @@ class FormulaireController extends Controller
      */
     public function index()
     {
-        //
+        $formulaires = Formulaire::all();
+        return view('formulaire.viewFormulaire',compact('formulaires'));
     }
 
-    /**
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -35,7 +38,15 @@ class FormulaireController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formulaire = new Formulaire();
+        $formulaire->nom = $request->input('nom');
+        $formulaire->email = $request->input('email');
+        $formulaire->sujet = $request->input('sujet');
+        $formulaire->message = $request->input('message');
+        $formulaire->save();
+
+        Mail::to($formulaire->email)->send(new FormulaireMail($formulaire));
+        return redirect('/#contact')->with('success','Votre message a bien été envoyé !');
     }
 
     /**
@@ -80,6 +91,7 @@ class FormulaireController extends Controller
      */
     public function destroy(Formulaire $formulaire)
     {
-        //
+        $formulaire->delete();
+        return redirect()->route('formulaire.index');
     }
 }

@@ -66,6 +66,22 @@ Route::resource('about', 'AboutController')->middleware('admin');
 
 Route::resource('contact', 'ContactController')->middleware('admin');
 
+// Ressources Formulaire
+
+Route::resource('formulaire', 'FormulaireController')->middleware('admin');
+
+// Ressources Newsletter
+
+Route::resource('newsletter', 'NewsletterController')->middleware('admin');
+
+// Ressources Footer
+
+Route::resource('footer', 'FooterController')->middleware('admin');
+
+// Ressources Testimonial
+
+Route::resource('testimonial', 'TestimonialController')->middleware('admin');
+
 Auth::routes();
 
 Route::get('/home', function() {

@@ -47,6 +47,10 @@
                     <td class="text-center border border-dark">{{$homeElement->titreTeam}}</td>
                 </tr>
                 <tr> 
+                    <th scope="col" class="text-center border border-dark">titreFeature</th>
+                    <td class="text-center border border-dark">{{$homeElement->titreFeature}}</td>
+                </tr>
+                <tr> 
                     <th scope="col" class="text-center border border-dark">promotionTitre</th>
                     <td class="text-center border border-dark">{{$homeElement->promotionTitre}}</td>
                 </tr>

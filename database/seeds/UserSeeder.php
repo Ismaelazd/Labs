@@ -51,5 +51,14 @@ class UserSeeder extends Seeder
             'image' => '/team/3.jpg'
    
         ]);
+        DB::table('users')->insert([
+            
+            'name' => 'Halima',
+            'email' => 'halimak@gmail.com',
+            'password' => Hash::make('azertyuiop'),
+            'role_id' => 6,
+            'image' => '/team/2.jpg'
+   
+        ]);
     }
 }

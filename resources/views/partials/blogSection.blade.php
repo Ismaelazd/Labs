@@ -8,7 +8,7 @@
 						<div class="post-thumbnail">
 							<img src="img/blog/blog-2.jpg" alt="">
 							<div class="post-date">
-								<h2>03</h2>
+								<h2>03</h2> 
 								<h3>Nov 2017</h3>
 							</div>
 						</div>

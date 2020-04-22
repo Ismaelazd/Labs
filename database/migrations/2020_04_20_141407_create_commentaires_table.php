@@ -22,6 +22,12 @@ class CreateCommentairesTable extends Migration
             ->references('id')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->bigInteger('article_id')->unsigned();
+            $table->foreign('article_id')
+            ->on('articles')
+            ->references('id')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }
