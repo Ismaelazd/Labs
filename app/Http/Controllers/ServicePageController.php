@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\Contact;
 use App\Footer;
 use App\HomeElement;
@@ -17,6 +18,7 @@ class ServicePageController extends Controller
         $footer = Footer::first();
         $lastSix = Service::latest('id')->take(6)->get();
         $titreFeature = HomeElement::latest('id')->first();
-        return view('servicePage',compact('services','homeElement','footer','contact','lastSix','titreFeature'));
+        $articles = Article::latest('id')->take(3)->get();
+        return view('servicePage',compact('services','homeElement','footer','contact','lastSix','titreFeature','articles'));
     }
 }

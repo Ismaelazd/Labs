@@ -20,7 +20,7 @@ class WelcomeController extends Controller
         $homeElement = HomeElement::first();
         $about = About::first();
         $CEO = User::where('role_id','=', 3)->first();
-        $randomUsers = User::inRandomOrder()->where('role_id','!=', 3)->where('role_id','!=', 1)->get();
+        $randomUsers = User::inRandomOrder()->where('role_id','!=', 3)->where('role_id','!=', 1)->take(2)->get();
         $contact = Contact::first();
         $footer = Footer::first();
         $testimonials = Testimonial::latest('id')->take(6)->get();
