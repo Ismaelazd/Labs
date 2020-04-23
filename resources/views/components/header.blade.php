@@ -7,6 +7,7 @@
                 {{Request::route()->getName()=='blogPage.index'?'Blog':''}}
                 {{Request::route()->getName()=='servicePage.index'?'Services':''}}
                 {{Request::route()->getName()=='contactPage.index'?'Contact':''}}
+                {{Request::route()->getName()=='article.show'?'Blog':''}}
                 {{-- {{ucfirst(Request::route()->getName())}} --}}
             </h2>
             <div class="page-links">
@@ -15,6 +16,7 @@
                     {{Request::route()->getName()=='servicePage.index'?'Services':''}}
                     {{Request::route()->getName()=='blogPage.index'?'Blog':''}}
                     {{Request::route()->getName()=='contactPage.index'?'Contact':''}}
+                    {{Request::route()->getName()=='article.show'?'Blog':''}}
                 </span>
             </div>
         </div>

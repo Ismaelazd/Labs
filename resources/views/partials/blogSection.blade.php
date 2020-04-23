@@ -21,14 +21,18 @@
 								<a href="">
 									@foreach ($article->tags->shuffle()->take(3) as $index=>$tag)
 										
-										{{$tag->tag}}
+									@if($loop->last)
+									{{$tag->tag}}
+									@else
+									{{$tag->tag}} ●
+									@endif
 
 									@endforeach
 								</a>
 								<a href="">2 Comments</a>
 							</div>
 							<p>{{Illuminate\Support\Str::limit($article->texte, 450, ' (...)')}}</p>
-							<a href="blog-post.html" class="read-more">Read More</a>
+							<a href="{{route('article.show',$article)}}" class="read-more">Read More</a>
 						</div>
 					</div>
 					@endforeach
@@ -74,7 +78,7 @@
 						<h2 class="widget-title">Quote</h2>
 						<div class="quote">
 							<span class="quotation">‘​‌‘​‌</span>
-							<p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. Sed lacinia turpis at ultricies vestibulum.</p>
+							<p>{{$quote->texte}}</p>
 						</div>
 					</div>
 					

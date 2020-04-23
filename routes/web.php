@@ -82,6 +82,31 @@ Route::resource('footer', 'FooterController')->middleware('admin');
 
 Route::resource('testimonial', 'TestimonialController')->middleware('admin');
 
+// Ressources Article
+
+Route::resource('article', 'ArticleController');
+
+// Ressources Tag
+
+Route::resource('tag', 'TagController');
+
+// Ressources Categorie
+
+Route::resource('categorie', 'CategorieController');
+
+// Ressources Quote
+
+Route::resource('quote', 'QuoteController');
+
+// Ressources Commentaire
+
+Route::resource('commentaire', 'CommentaireController');
+
+Route::post('/commentaire/store/{article}', 'CommentaireController@store')->name('addComment');
+
+// Search Search Article
+Route::get('/searchArticle', 'ArticleController@search')->name('searchArticle');
+
 Auth::routes();
 
 Route::get('/home', function() {

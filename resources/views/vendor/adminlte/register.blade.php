@@ -89,7 +89,20 @@
                         </div>
                     @endif
                 </div>
+
                 <div class="input-group mb-3">
+                    <div class="custom-file">
+                      <input type="file"name="image" class="custom-file-input {{ $errors->has('image') ? 'is-invalid' : '' }}" id="inputGroupFile01">
+                      <label class="custom-file-label" for="inputGroupFile01">Choose an image</label>
+                    </div>
+                    @if ($errors->has('image'))
+                    <div class="invalid-feedback">
+                        <strong>{{ $errors->first('image') }}</strong>
+                    </div>
+                @endif
+                  </div>
+
+                {{-- <div class="input-group mb-3">
                     <input type="file" name="image" class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}"
                            >
                     <div class="input-group-append">
@@ -102,7 +115,7 @@
                             <strong>{{ $errors->first('image') }}</strong>
                         </div>
                     @endif
-                </div>
+                </div> --}}
 
             
                 <button type="submit" class="btn btn-primary btn-block btn-flat">

@@ -60,14 +60,18 @@
             <div class="alert alert-danger">{{  $message  }}</div>
             @enderror
         </div>
-        <div class="form-group text-darka">
-            <label class="h3" for="img">Photo :</label>
-            <input value="{{$testimonial->img}}" type="file" name="img"
-                class="form-control @error('img') is-invalid @enderror" id="img">
-            @error('img')
-            <div class="alert alert-danger">{{  $message  }}</div>
-            @enderror
-        </div>
+        <label class="h3" for="">Photo :</label>
+        <div class="input-group mb-3">
+            <div class="custom-file">
+              <input type="file"name="img" class="custom-file-input {{ $errors->has('img') ? 'is-invalid' : '' }}" id="inputGroupFile01">
+              <label class="custom-file-label" for="inputGroupFile01">Choose an image</label>
+            </div>
+            @if ($errors->has('img'))
+            <div class="invalid-feedback">
+                <strong>{{ $errors->first('img') }}</strong>
+            </div>
+        @endif
+          </div>
 
         <div class="text-center">
 

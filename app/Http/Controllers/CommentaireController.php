@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\Commentaire;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentaireController extends Controller
 {
@@ -14,7 +17,9 @@ class CommentaireController extends Controller
      */
     public function index()
     {
-        //
+       
+        $commentaires = Commentaire::all();
+        return view('commentaire.viewCommentaire',compact('commentaires'));
     }
 
     /**
@@ -33,9 +38,14 @@ class CommentaireController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Article $article)
     {
-        //
+        $commentaire = new Commentaire();
+        $commentaire->commentaire = $request->input('commentaire');
+        $commentaire->article_id = $article->id;
+        $commentaire->user_id = Auth::id();
+        $commentaire->save();
+        return redirect()->back();
     }
 
     /**
@@ -69,7 +79,11 @@ class CommentaireController extends Controller
      */
     public function update(Request $request, Commentaire $commentaire)
     {
-        //
+        $commentaire->commentaire = $request->input('commentaire');
+     
+        $commentaire->save();
+        return redirect()->back();
+
     }
 
     /**
@@ -80,6 +94,7 @@ class CommentaireController extends Controller
      */
     public function destroy(Commentaire $commentaire)
     {
-        //
+        $commentaire->delete();
+        return redirect()->back();
     }
 }

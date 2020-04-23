@@ -14,7 +14,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Categorie::all();
+        return view('categorie.viewCategorie',compact('categories'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        //
+        return view('categorie.addCategorie');
     }
 
     /**
@@ -35,7 +36,15 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+
+            'categorie' => 'required|unique:categories',
+        ]);
+        $categorie = new Categorie();
+        $categorie->categorie=$request->input('categorie');
+        $categorie->save();
+        return redirect()->route('categorie.index');
     }
 
     /**
@@ -57,7 +66,7 @@ class CategorieController extends Controller
      */
     public function edit(Categorie $categorie)
     {
-        //
+        return view('categorie.editCategorie',compact('categorie'));
     }
 
     /**
@@ -69,7 +78,14 @@ class CategorieController extends Controller
      */
     public function update(Request $request, Categorie $categorie)
     {
-        //
+        $request->validate([
+
+            'categorie' => 'required|unique:categories',
+        ]);
+
+        $categorie->categorie=$request->input('categorie');
+        $categorie->save();
+        return redirect()->route('categorie.index');
     }
 
     /**
@@ -80,6 +96,7 @@ class CategorieController extends Controller
      */
     public function destroy(Categorie $categorie)
     {
-        //
+        $categorie->delete();
+        return redirect()->route('categorie.index');
     }
 }

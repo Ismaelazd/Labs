@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Tag;
+use App\Quote;
 use Illuminate\Http\Request;
 
-class TagController extends Controller
+class QuoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
-        return view('tag.viewTag',compact('tags'));
+        $quote = Quote::first();
+        return view('quote.viewQuote',compact('quote'));
     }
 
     /**
@@ -25,7 +25,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('tag.addTag');
+        //
     }
 
     /**
@@ -36,23 +36,16 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-
-            'tag' => 'required|unique:tags',
-        ]);
-        $tag = new Tag();
-        $tag->tag=$request->input('tag');
-        $tag->save();
-        return redirect()->route('tag.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Tag  $tag
+     * @param  \App\Quote  $quote
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show(Quote $quote)
     {
         //
     }
@@ -60,42 +53,45 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Tag  $tag
+     * @param  \App\Quote  $quote
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit(Quote $quote)
     {
-        return view('tag.editTag',compact('tag'));
+        return view('quote.editQuote',compact('quote'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tag  $tag
+     * @param  \App\Quote  $quote
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request, Quote $quote)
     {
         $request->validate([
+           
+            'texte' => 'required|max:6000',
+        ]); 
+            
+         
 
-            'tag' => 'required|unique:tags',
-        ]);
+        $quote->texte = $request->input('texte');
+  
+        $quote->save();
 
-        $tag->tag=$request->input('tag');
-        $tag->save();
-        return redirect()->route('tag.index');
+        return redirect()->route('quote.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Tag  $tag
+     * @param  \App\Quote  $quote
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy(Quote $quote)
     {
-        $tag->delete();
-        return redirect()->route('tag.index');
+        //
     }
 }

@@ -147,6 +147,84 @@ class AppServiceProvider extends ServiceProvider
                     ],
                     
                 ],
+            ],
+            [
+                'text'    => 'Articles',
+                'icon'    => 'fas fa-newspaper',
+                'submenu' => [
+                    [
+                        'text' => 'Content',
+                        'url'  => 'article',
+                        'icon_color' => 'yellow',
+                    ],
+                    [
+                        'text' => 'Ajouter',
+                        'url'  => 'article/create',
+                        'icon_color' => 'green',
+                    ],
+                    
+                ],
+            ],
+            [
+                'text'    => 'Tags',
+                'icon'    => 'fas fa-tags',
+                'submenu' => [
+                    [
+                        'text' => 'Content',
+                        'url'  => 'tag',
+                        'icon_color' => 'yellow',
+                    ],
+                    [
+                        'text' => 'Ajouter',
+                        'url'  => 'tag/create',
+                        'icon_color' => 'green',
+                    ],
+                    
+                ],
+            ],
+            [
+                'text'    => 'Catégories',
+                'icon'    => 'fas fa-list',
+                'submenu' => [
+                    [
+                        'text' => 'Content',
+                        'url'  => 'categorie',
+                        'icon_color' => 'yellow',
+                    ],
+                    [
+                        'text' => 'Ajouter',
+                        'url'  => 'categorie/create',
+                        'icon_color' => 'green',
+                    ],
+                    
+                ],
+            
+            ],
+            [
+                'text'    => 'Commentaires',
+                'icon'    => 'fas fa-comments',
+                'submenu' => [
+                    [
+                        'text' => 'Content',
+                        'url'  => 'commentaire',
+                        'icon_color' => 'yellow',
+                    ],
+                    
+                    
+                ],
+            ],
+            [
+                'text'    => 'Quote',
+                'icon'    => 'fas fa-quote-left',
+                'submenu' => [
+                    [
+                        'text' => 'Content',
+                        'url'  => 'quote',
+                        'icon_color' => 'yellow',
+                    ],
+                    
+                    
+                ],
             ]
         );
         });
